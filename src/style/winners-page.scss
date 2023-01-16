@@ -1,0 +1,44 @@
+@import "mixsin";
+
+.winners {
+  &__wrapper {
+    flex: 1 0 auto;
+  }
+}
+
+.table {
+  padding: rem(10);
+  text-align: center;
+  border-radius: rem(5);
+  border: 1px solid #000000;
+  &__error-message {
+    color: red;
+  }
+}
+
+.head {
+  &__filter {
+    cursor: pointer;
+  }
+  &__col {
+    position: relative;
+    &.head__filter_none {
+      .head__filter-icon {
+        opacity: 0;
+      }
+    }
+    &.head__filter_desc {
+      .head__filter-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__filter-icon {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+}
+
+th, td {
+  padding: rem(15);
+}

@@ -1,0 +1,28 @@
+@import "mixsin";
+@import "media-queries";
+
+.main {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: rem(20);
+  }
+  &__logo {
+    @include sm {
+      width: rem(300);
+      height: rem(300);
+    }
+    @include xs {
+      width: rem(200);
+      height: rem(200);
+    }
+  }
+  &__href-start {
+    text-decoration: none;
+    padding: rem(15);
+    border-radius: rem(5);
+    background-color: #3391fe;
+  }
+}

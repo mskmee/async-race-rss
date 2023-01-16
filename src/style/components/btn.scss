@@ -1,0 +1,36 @@
+@import "../mixsin";
+
+.btn {
+  border: 0;
+  border-radius: rem(5);
+  cursor: pointer;
+  font-size: rem(16);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s ease-out;
+  &:after {
+    content: "›";
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    right: rem(-20);
+    width: rem(30);
+    background-color: hsla(0,0%,100%,.3);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: all .2s ease-out;
+    top: -3%;
+    height: 103%;
+  }
+  &:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    scale: 1.05;
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}

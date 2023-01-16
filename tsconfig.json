@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "target": "ES6",
+    "moduleResolution": "node",
+    "strict": true,
+    "module": "es6",
+    "allowJs": true
+  },
+  "files": ["src/index.ts"],
+  "include": ["**/*.ts"],
+  "exclude": [".eslintrc.js", "webpack.config.js"],
+}

@@ -1,0 +1,22 @@
+@import "mixsin";
+
+.error {
+  &__wrapper {
+    padding: rem(30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &__btn {
+    padding: rem(15);
+    border-radius: rem(5);
+    background-color: #3391fe;
+  }
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin: rem(20);
+}

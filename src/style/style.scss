@@ -1,0 +1,57 @@
+@import "mixsin";
+@import "media-queries";
+@import "variables";
+@import "race-page";
+@import "winners-page";
+@import "main-page";
+@import "error-page";
+@import "garage-page";
+@import "./components/btn";
+@import "./components/footer";
+@import "./components/header";
+@import "./components/popUp";
+@import "./components/pagination";
+
+body {
+  margin: 0;
+  &.lock {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex: 1 1 auto;
+  }
+}
+
+.container {
+  max-width: $screen-lg-max;
+}
+
+.app {
+  & .flex {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  & .flex-c {
+    justify-content: center;
+  }
+  & .flex-d-c {
+    flex-direction: column;
+  }
+  & .flex-a-c {
+    align-items: center;
+  }
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}

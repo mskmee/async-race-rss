@@ -1,0 +1,114 @@
+@import "mixsin";
+@import "media-queries";
+
+.garage {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(20);
+    flex: 1 0 auto;
+    @include xs {
+      justify-content: center;
+    }
+  }
+  &__title-count {
+    margin: rem(15);
+  }
+  &__cars-container {
+    text-align: center;
+    & .car__icon {
+      width: clamp(15.625rem, 8.75rem + 34.38vw, 50rem);
+      height: clamp(15.625rem, 8.75rem + 34.38vw, 50rem);
+    }
+    @include xs {
+      display: none;
+    }
+  }
+  &__car-model {
+    width: rem(800);
+    height: rem(500);
+    @include sm {
+      width: rem(250);
+      height: rem(300);
+    }
+
+  }
+  &__car-add-title {
+    max-width: rem(300);
+  }
+}
+
+.list {
+  &__cars {
+    display: grid;
+  }
+}
+
+.car-add {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+    max-width: rem(300);
+  }
+  &__name {
+    border-radius: rem(5);
+  }
+  &__color {
+    width: 100%;
+    border-radius: rem(5);
+    cursor: pointer;
+  }
+  &__add-btn {
+    background-color: #3391fe;
+  }
+  &__generate-btn {
+    background-color: orange;
+    margin-bottom: rem(15);
+  }
+}
+
+.car {
+  &__item {
+    cursor: pointer;
+    padding: rem(10);
+    border: 1px solid #e3e3e3;
+    margin-bottom: rem(5);
+  }
+  &__item_active {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    & > form {
+      & > label,
+      & > button,
+      & > input {
+        visibility: visible;
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+  &__updates {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    & > label,
+    & > button,
+    & > input {
+      transition: all 0.3s ease;
+      visibility: hidden;
+      display: none;
+      opacity: 0;
+    }
+  }
+  &__name {
+    text-align: center;
+    font-size: rem(25);
+  }
+  &__update-btn {
+    background-color: #3391fe;
+  }
+  &__delete-btn {
+    background-color: #ff0000;
+    color: #ffffff;
+  }
+}

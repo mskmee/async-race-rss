@@ -1,0 +1,66 @@
+@import "mixsin";
+
+.car-circle {
+  animation: wheel 1s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes wheel {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.race {
+  &__wrapper {
+    flex: 1 0 auto;
+  }
+}
+
+.race-control {
+  display: flex;
+  gap: rem(15);
+  padding: rem(25);
+  &__btn {
+    padding: rem(20);
+  }
+  &__start {
+    background-color: #00ff00;
+  }
+  &__break {
+    background-color: #ff0000;
+  }
+}
+
+.car-item {
+  margin: rem(10);
+  &__form {
+    position: absolute;
+    top: rem(20);
+  }
+  &__icon-wrapper {
+    position: relative;
+    & svg {
+      width: rem(200);
+      height: rem(100);
+    }
+  }
+  &__road {
+    position: absolute;
+    top: rem(50);
+  }
+  &__engage {
+    background-color: #00ff00;
+  }
+  &__break {
+    background-color: #ff0000;
+  }
+  &__btn {
+    padding: rem(5);
+    cursor: pointer;
+  }
+}

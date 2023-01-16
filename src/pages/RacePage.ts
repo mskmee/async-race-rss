@@ -2,9 +2,12 @@ import { PageComponent } from '../templates/PageComponent';
 import { fetchData } from '../API';
 import { ICarResponse } from '../types/interface/ICarResponse';
 import { getCarSvg } from '../common/utils';
+import { PopUp } from '../components/PopUp';
 
 export class RacePage extends PageComponent {
   static pageCount?: number;
+  private popUp: PopUp;
+
   constructor(tag: string, cssClass: string[], pageNumber?: number) {
     super(tag, cssClass);
     if(pageNumber){
@@ -15,6 +18,7 @@ export class RacePage extends PageComponent {
     this.elementsOnScreen = 7;
     this.elementsCount = 7;
     this.lasPageNumber = 1;
+    this.popUp = new PopUp('div', ['pop-up__info']);
   }
 
   createElement(){
@@ -51,16 +55,16 @@ export class RacePage extends PageComponent {
 
   createCarRoad(el: ICarResponse): string {
     const data = `
-      <div class="race__car-item car-item">
+      <div class="race__car-item car-item ${el.id}">
         <h2 class="car-item__name">${el.name}</h2>
         <div class="car-item__icon-wrapper">
         <form class="car-item__form">
-          <button type="button" class="car-item__engage btn car-item__btn">A</button>
-          <button type="button" class="car-item__break btn car-item__btn">B</button>
+          <button data-id="${el.id}" type="button" class="car-item__engage btn car-item__btn">A</button>
+          <button data-id="${el.id}" type="button" class="car-item__break btn car-item__btn">B</button>
         </form>
           ${getCarSvg(el.color)}
-          <div class="car-item__road">____________________</div>
         </div>
+        <hr class="car-item__road">
       </div>
     `;
     return data;
@@ -80,6 +84,30 @@ export class RacePage extends PageComponent {
         RacePage.pageCount = this.pageNumber;
       });
     }
+    const raceField = this.container.querySelector('.race__field');
+    if(raceField){
+      raceField.addEventListener('click', (e) =>{
+        const target = e.target;
+        if(target instanceof Element){
+          if(target.closest('.car-item__engage')){
+            const id = target.getAttribute('data-id');
+            if(id) this.engageCar(id).then();
+          }
+          if(target.closest('.car-item__break')){
+            console.log(target.getAttribute('data-id'));
+          }
+        }
+      });
+    }
+  }
+
+  async engageCar(id: string){
+    const response = await fetchData(`/engine?id=${id}&status=started`, 'PATCH');
+    if(typeof response === 'string' || !response.ok){
+      return this.container.append(this.popUp.createPopUp('warning', 'Error! Check JSON server'));
+    }
+    const data = await response.json();
+    console.log(data);
   }
 
   render(): HTMLElement {

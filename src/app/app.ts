@@ -28,7 +28,7 @@ export class App {
       } else if(pageIndex === 'race'){
         this.page = new RacePage('div', ['race__wrapper'], RacePage.pageCount);
         appContainer.classList.add('flex', 'flex-d-c');
-        appContainer.classList.remove('flex-c');
+        appContainer.classList.remove('flex-c', 'flex-a-c');
       } else if(pageIndex === 'winners') {
         this.page = new WinnersPage('div', ['winners__wrapper'], WinnersPage.pageCount);
         appContainer.classList.add('flex', 'flex-d-c', 'flex-a-c');

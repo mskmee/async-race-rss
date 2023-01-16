@@ -37,21 +37,31 @@
 }
 
 .car-item {
+  position: relative;
   margin: rem(10);
   &__form {
     position: absolute;
-    top: rem(20);
+    top: 20%;
   }
   &__icon-wrapper {
     position: relative;
+    &:after {
+      position: absolute;
+      top: rem(40);
+      right: 10%;
+      content: '';
+      width: rem(30);
+      height: rem(30);
+      background: url("../assets/finish-line-flag.svg") no-repeat center;
+    }
     & svg {
       width: rem(200);
       height: rem(100);
     }
   }
   &__road {
-    position: absolute;
-    top: rem(50);
+    position: relative;
+    bottom: rem(45);
   }
   &__engage {
     background-color: #00ff00;

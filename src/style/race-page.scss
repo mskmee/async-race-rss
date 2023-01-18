@@ -1,7 +1,6 @@
 @import "mixsin";
 
 .car-circle {
-  animation: wheel 1s infinite linear;
   transform-origin: center;
   transform-box: fill-box;
 }
@@ -41,27 +40,29 @@
   margin: rem(10);
   &__form {
     position: absolute;
-    top: 20%;
+    top: 30%;
   }
   &__icon-wrapper {
     position: relative;
     &:after {
       position: absolute;
-      top: rem(40);
-      right: 10%;
+      top: rem(110);
+      right: 15%;
       content: '';
-      width: rem(30);
-      height: rem(30);
+      width: rem(100);
+      height: rem(100);
       background: url("../assets/finish-line-flag.svg") no-repeat center;
     }
-    & svg {
-      width: rem(200);
-      height: rem(100);
+    & svg  {
+      width: rem(450);
+      height: rem(300);
+      margin: 0;
+      padding: 0;
     }
   }
   &__road {
     position: relative;
-    bottom: rem(45);
+    bottom: rem(112);
   }
   &__engage {
     background-color: #00ff00;
@@ -70,7 +71,10 @@
     background-color: #ff0000;
   }
   &__btn {
-    padding: rem(5);
+    padding: rem(10);
+    margin-right: rem(5);
+    font-size: rem(20);
+    z-index: 2;
     cursor: pointer;
   }
 }

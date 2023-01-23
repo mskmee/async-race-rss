@@ -1,0 +1,17 @@
+.pagination__wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  font-size: 30px;
+}
+
+.pagination__link {
+  text-decoration: none;
+  cursor: pointer;
+  &_deactivated {
+    cursor: auto;
+    pointer-events: none;
+  }
+}

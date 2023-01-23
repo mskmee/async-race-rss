@@ -1,0 +1,126 @@
+@import "mixsin";
+
+.car-circle {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes wheel {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.race {
+  &__wrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__field {
+    overflow: hidden;
+    flex: 1 0 auto;
+  }
+}
+
+.race-control {
+  display: flex;
+  gap: rem(15);
+  padding: rem(25);
+  &__btn {
+    padding: rem(20);
+  }
+  &__start {
+    background-color: #00ff00;
+  }
+  &__break {
+    background-color: #ff0000;
+  }
+}
+
+.car-item {
+  position: relative;
+  margin: rem(10);
+  &__form {
+    position: absolute;
+    top: 30%;
+    @include sm {
+      top: 0;
+    }
+    @include xs {
+      top: 0;
+    }
+  }
+  &__icon-wrapper {
+    position: relative;
+    &:after {
+      position: absolute;
+      top: rem(110);
+      right: 15%;
+      content: '';
+      width: rem(100);
+      height: rem(100);
+      background: url("../assets/finish-line-flag.svg") no-repeat center;
+      @include sm {
+        width: rem(30);
+        height: rem(30);
+        top: rem(41);
+        right: 17%;
+      }
+      @include xs {
+        width: rem(30);
+        height: rem(30);
+        top: rem(41);
+        right: 17%;
+      }
+    }
+    & svg  {
+      width: rem(450);
+      height: rem(300);
+      margin: 0;
+      padding: 0;
+      @include sm {
+        width: rem(200);
+        height: rem(100);
+      }
+      @include xs {
+        width: rem(200);
+        height: rem(100);
+      }
+    }
+  }
+  &__road {
+    position: relative;
+    bottom: rem(112);
+    @include sm {
+      bottom: rem(45);
+    }
+    @include xs {
+      bottom: rem(45);
+    }
+  }
+  &__engage {
+    background-color: #00ff00;
+  }
+  &__break {
+    background-color: #ff0000;
+  }
+  &__btn {
+    padding: rem(10);
+    margin-right: rem(5);
+    font-size: rem(20);
+    z-index: 2;
+    cursor: pointer;
+    @include sm {
+      font-size: rem(15);
+      margin: 0;
+    }
+    @include xs {
+      margin: 0;
+      font-size: rem(15);
+    }
+  }
+}

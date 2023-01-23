@@ -8,13 +8,17 @@ import { getCars } from '../../API/cars/getCars';
 
 export class GaragePage extends PageComponent{
   gatherData = async () => {
-    const data = await getCars(GaragePage.state.activePageNum, GaragePage.state.displayItems);
-    if(typeof data === 'string') return; //TODO catch err
-    GaragePage.state.totalCount = data.totalCount;
-    GaragePage.state.lastPageNum = Math.ceil(data.totalCount / GaragePage.state.displayItems) ?? 1;
-    this.title.node.textContent = `Garage (${GaragePage.state.totalCount})`;
-    this.carsList.createCarsList(data);
-    this.pagination?.updateElement(GaragePage.state.lastPageNum);
+    try {
+      const data = await getCars(GaragePage.state.activePageNum, GaragePage.state.displayItems);
+      if(typeof data === 'string') return; //TODO catch err
+      GaragePage.state.totalCount = data.totalCount;
+      GaragePage.state.lastPageNum = Math.ceil(data.totalCount / GaragePage.state.displayItems) ?? 1;
+      this.title.node.textContent = `Garage (${GaragePage.state.totalCount})`;
+      this.carsList.createCarsList(data);
+      this.pagination?.updateElement(GaragePage.state.lastPageNum);
+    } catch (e){
+      return;
+    }
   };
   private garageContainer = new Component({
     tag:'div',

@@ -1,38 +1,25 @@
-import { PageComponent } from '../templates/PageComponent';
+import { Component } from '../components/elements/Component';
+import { ImageComponent } from '../components/elements/ImageComponent';
 import mainLogoImg from '../assets/main__logo-img.png';
-export class MainPage extends PageComponent{
-  constructor(tag: string, cssClassList: string[]) {
-    super(tag, cssClassList);
-  }
+import { AnchorComponent } from '../components/elements/AnchorComponent';
+import { PagesIndex } from '../types/enum/PagesIndex';
 
-  createElement(){
-    const mainBlock = `
-    <h1 class="main__title">Welcome to async race</h1>
-    <img class="main__logo" alt="main__logo">
-    <a href="#" class="main__href-start btn">Start Game</a>
-    `;
-    this.container.innerHTML = mainBlock;
-  }
-
-  addEventsListeners(){
-    const mainHref = this.container.querySelector('.main__href-start');
-    if(mainHref){
-      mainHref.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.hash = 'race';
-      });
-    }
-    const mainLogo = this.container.querySelector('.main__logo');
-    if(mainLogo instanceof HTMLImageElement) {
-      mainLogo.width = 450;
-      mainLogo.height = 400;
-      mainLogo.src = mainLogoImg;
-    }
-  }
-
-  render(): HTMLElement {
-    this.createElement();
-    this.addEventsListeners();
-    return super.render();
+export class MainPage extends Component {
+  private title = new Component({tag: 'h1', textContent: 'Welcome to async race'});
+  private img = new ImageComponent({
+    alt: 'main__logo',
+    width: 450,
+    height: 350,
+    src: mainLogoImg,
+  });
+  private startBtn = new AnchorComponent({
+    textContent: 'Start Game',
+    className: 'main__href-start btn',
+    onclick: () => window.location.hash = PagesIndex.race,
+  });
+  constructor() {
+    super({tag: 'div', className: 'main__wrapper'});
+    this.node.append(this.title.node, this.img.node, this.startBtn.node);
+    this.node.parentElement?.classList.add('flex-jc');
   }
 }

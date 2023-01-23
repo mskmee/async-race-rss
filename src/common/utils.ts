@@ -1,14 +1,3 @@
-export function createHTMLElement(tagName: string, className: string[], text?:string) {
-  const element = document.createElement(tagName);
-  className.forEach(el => {
-    element.classList.add(el);
-  });
-  if(text) {
-    element.innerHTML = text;
-  }
-  return element;
-}
-
 export const getCarSvg = (color: string) => {
   return `
   <svg class="car__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" y="0" x="0" id="圖層_1" version="1.1" width="40px" height="40px"><g class="ldl-scale"><path fill="${color}" d="M66 47.5c-.4-.5-5.1 0-5.7 0H22.9c-1.8 0-4.9.6-6.5 0 .8-2.5 3.4-3.9 5.7-5 6.5-3.1 13.3-5.7 20.3-7.6 10-2.8 16.1 2 22.5 11.1l1.1 1.5z"/>
@@ -36,8 +25,4 @@ export const getCarSvg = (color: string) => {
   <path d="M18.7 46.2l-2.9 2.5-4.9-8.1 1.9-1.6z" fill="${color}"/>
   <metadata xmlns:d="https://loading.io/stock/"><d:name>sports car</d:name>
   `;
-};
-
-export const generateCars = async () => {
-
 };

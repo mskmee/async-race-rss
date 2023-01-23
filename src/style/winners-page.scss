@@ -3,6 +3,10 @@
 .winners {
   &__wrapper {
     flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    justify-content: space-between;
   }
 }
 
@@ -22,12 +26,12 @@
   }
   &__col {
     position: relative;
-    &.head__filter_none {
+    &.none {
       .head__filter-icon {
         opacity: 0;
       }
     }
-    &.head__filter_desc {
+    &.desc {
       .head__filter-icon {
         transform: rotate(180deg);
       }

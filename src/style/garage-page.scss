@@ -1,27 +1,50 @@
 @import "mixsin";
 @import "media-queries";
 
+.car-add__name,
+.car-color,
+.car-add__add-btn,
+.car-add__generate-btn,
+.car-add__name,
+.car-add__color,
+.car__update-btn,
+.car__delete-btn {
+  height: rem(40);
+
+}
+
 .garage {
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     padding: rem(20);
     flex: 1 0 auto;
     @include xs {
-      justify-content: center;
+      align-items: center;
     }
+    > .pagination__wrapper {
+      margin: rem(10) auto;
+    }
+  }
+  &__container {
+    display: flex;
   }
   &__title-count {
     margin: rem(15);
   }
   &__cars-container {
     text-align: center;
+    transition: all 0.3s ease;
     & .car__icon {
       width: clamp(15.625rem, 8.75rem + 34.38vw, 50rem);
       height: clamp(15.625rem, 8.75rem + 34.38vw, 50rem);
     }
     @include xs {
       display: none;
+    }
+    &_disable {
+      visibility: hidden;
     }
   }
   &__car-model {
@@ -41,6 +64,10 @@
 .list {
   &__cars {
     display: grid;
+    width: 40%;
+    @include xs {
+      width: 100%;
+    }
   }
 }
 
